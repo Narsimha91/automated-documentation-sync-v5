@@ -1,0 +1,48 @@
+name: README feature sync
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/features.py
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: python -m pip install pytest
+
+      - name: Test feature list and sync behavior
+        run: python -m pytest
+
+      - name: Update README feature list
+        run: python -m scripts.sync_readme
+
+      - name: Create or update README pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: docs/auto-update-readme
+          base: main
+          add-paths: README.md
+          commit-message: "docs: sync README feature list"
+          title: "docs: sync README feature list"
+          body: |
+            Automated update of the README feature list from `src/features.py`.
+
+            Validation: `pytest` passed.
