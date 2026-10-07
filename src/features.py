@@ -1,4 +1,4 @@
-FEATURES: list[str] = ["Create", "Update", "READ"]
+FEATURES: list[str] = ["Create", "Update", "Read"]
 
 
 def features() -> list[str]:
