@@ -10,7 +10,7 @@ Here you can write your general project description, installation steps, or usag
 <!-- docs-sync: start -->
 - Create
 - Update
-- READ
+- Read
 <!-- docs-sync: end -->
 ---
 
