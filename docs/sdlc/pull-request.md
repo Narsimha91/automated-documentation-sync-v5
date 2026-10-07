@@ -1,5 +1,7 @@
 # Pull Request Draft
 
+**Status:** Submitted as [PR #1](https://github.com/Narsimha91/automated-documentation-sync-v5/pull/1) from `feature/readme-auto-sync` to `main`.
+
 **Title:** `feat: automate README feature-list sync`
 
 ## Summary
@@ -44,4 +46,4 @@ The record also documents a disposable-file integration check using the actual `
 
 ## Approval Gate
 
-This is a draft only. Final human-in-the-loop management (HITM) approval is required before any pull request is created or submitted.
+Final HITM approval was received before submission. PR #1 is open and ready to merge.
